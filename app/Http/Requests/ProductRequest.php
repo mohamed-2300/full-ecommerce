@@ -25,7 +25,8 @@ class ProductRequest extends FormRequest
             'name' => 'required|min:5',
             'description' => 'required|min:50',
             'quantity' => 'required|numeric',
-            'price' => 'required|numeric'
+            'price' => 'required|numeric',
+            'category_id' => 'required|numeric'
         ];
 
         if($this->route()->getActionMethod() === 'store'){

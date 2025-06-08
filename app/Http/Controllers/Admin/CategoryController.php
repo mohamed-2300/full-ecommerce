@@ -44,7 +44,8 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        $products = $category->products()->get();
+        return view('category.show', compact('products', 'category'));
     }
 
     /**

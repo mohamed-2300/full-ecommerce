@@ -41,8 +41,28 @@
   </div>
   <div class="mb-3">
     <label for="price" class="form-label">Price</label>
-    <input type="number" name="price" class="form-control" id="price" value="{{@old('price',$product->price)}}">
+    <input type="number" name="price" class="form-control" id="price" value="{{old('price',$product->price)}}">
   </div>
+
+  <div class="mb-3">
+    <label for="category" class="form-label">Category</label>
+
+
+    <select name="category_id" class="form-control" id="category">
+
+      <option value="">Choose your option</option>
+      @foreach($categories as $category)
+
+          <option @selected(old('category_id', $product->category_id) === $category->id) value="{{ $category->id }}"> 
+            {{ $category->name }} 
+          </option>
+
+      @endforeach
+    </select>
+
+
+  </div>
+
   <button type="submit" class="btn btn-primary">{{$isUpdate ? 'Edit' : 'Create'}}</button>
 </form>
 
